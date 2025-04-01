@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syracuse</title>
+    <style>
+        .container { max-width: 800px; margin: 0 auto; text-align: center; }
+        #manga-image { max-width: 100%; height: auto; }
+        .controls { margin: 20px 0; }
+        button { padding: 10px 20px; margin: 0 5px; }
+
+	    .loading-container {
+        position: relative;
+        min-height: 300px; /* Adjust based on your typical image height */
+    }
+    
+    #loading-spinner {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top-color: #000;
+        animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    #manga-image {
+        transition: opacity 0.3s ease;
+    }
+    
+    .loading #manga-image {
+        opacity: 0;
+    }
+    
+    .loading #loading-spinner {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+	<div class="container">
+    <div class="controls">
+        <select id="chapter-select"></select>
+        <select id="page-select"></select>
+    </div>
+    <div class="loading-container">
+        <div id="loading-spinner"></div>
+        <img id="manga-image" alt="Manga Page">
+    </div>
+    <div class="nav-buttons">
+        <button id="prev-btn">Previous</button>
+        <button id="next-btn">Next</button>
+    </div>
+</div>
+    <script src="./main.js"></script>
+</body>
+</html>
