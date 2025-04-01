@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ).join('');
             // Handle initial URL state
             handleHashChange();
+            loadChapter(1);
         })
         .catch(error => console.error('Error loading chapters:', error));
 });
